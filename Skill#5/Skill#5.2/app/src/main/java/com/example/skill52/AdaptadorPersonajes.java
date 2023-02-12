@@ -13,22 +13,23 @@ import java.util.ArrayList;
 
 public class AdaptadorPersonajes extends RecyclerView.Adapter<AdaptadorPersonajes.ViewHolderPersonajes> {
 
-    ArrayList<PersonajeVo> listaPersonajes;
+    ArrayList<PersonajeVo>listaPersonajes;
 
     public AdaptadorPersonajes(ArrayList<PersonajeVo> listaPersonajes) {
         this.listaPersonajes = listaPersonajes;
     }
 
+    @NonNull
     @Override
-    public ViewHolderPersonajes onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list_personajes,null,false);
+    public ViewHolderPersonajes onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list_personajes,null,false);
         return new ViewHolderPersonajes(view);
     }
 
     @Override
-    public void onBindViewHolder(ViewHolderPersonajes holder, int position) {
-        holder.etiNombre.setText(listaPersonajes.get(position).getNombre());
-        holder.etiInformacion.setText(listaPersonajes.get(position).getInfo());
+    public void onBindViewHolder(@NonNull ViewHolderPersonajes holder, int position) {
+        holder.EtiNombre.setText(listaPersonajes.get(position).getNombre());
+        holder.EtiInformacion.setText(listaPersonajes.get(position).getInfo());
         holder.foto.setImageResource(listaPersonajes.get(position).getFoto());
     }
 
@@ -39,15 +40,14 @@ public class AdaptadorPersonajes extends RecyclerView.Adapter<AdaptadorPersonaje
 
     public class ViewHolderPersonajes extends RecyclerView.ViewHolder {
 
-        TextView etiNombre, etiInformacion;
+        TextView EtiNombre,EtiInformacion;
         ImageView foto;
 
-        public ViewHolderPersonajes(View itemView) {
+        public ViewHolderPersonajes(@NonNull View itemView) {
             super(itemView);
-            etiNombre=(TextView) itemView.findViewById(R.id.idNombre);
-            etiInformacion=(TextView) itemView.findViewById(R.id.idInfo);
-            foto= (ImageView) itemView.findViewById(R.id.idImagen);
-
+            EtiInformacion = itemView.findViewById(R.id.idInfo);
+            EtiNombre = itemView.findViewById(R.id.idNombre);
+            foto = itemView.findViewById(R.id.idImagen);
         }
     }
 }

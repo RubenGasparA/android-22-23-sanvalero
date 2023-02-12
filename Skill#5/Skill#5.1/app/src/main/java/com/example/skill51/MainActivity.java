@@ -1,7 +1,6 @@
 package com.example.skill51;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -19,16 +18,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        recycler = (RecyclerView) findViewById(R.id.recyclerId);
-//        recycler.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL), false);
-        recycler.setLayoutManager(new GridLayoutManager(this, 3));
+        recycler=findViewById(R.id.recyclerId);
+        recycler.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
+
         listDatos=new ArrayList<String>();
 
-        for (int i = 1; i <= 50; i++) {
-                listDatos.add("Dato #"+i+" ");
+        for (int i=0;i<50;i++){
+            listDatos.add("Dato # " + i +"");
         }
 
         AdapterDatos adapter = new AdapterDatos(listDatos);
         recycler.setAdapter(adapter);
+
     }
 }

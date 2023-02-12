@@ -1,17 +1,19 @@
 package com.example.skill52;
 
 public class PersonajeVo {
+
     private String nombre;
     private String info;
     private int foto;
+
+    public PersonajeVo(){
+
+    }
 
     public PersonajeVo(String nombre, String info, int foto) {
         this.nombre = nombre;
         this.info = info;
         this.foto = foto;
-    }
-
-    public PersonajeVo() {
     }
 
     public String getNombre() {
